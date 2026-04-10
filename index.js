@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api/contacts', contactRoutes);
 
 // Database Sync and Server Initialization
-sequelize.sync({ alter: true }) // 'alter' updates the schema if models change safely
+sequelize.sync({ alter: true }) 
   .then(() => {
     console.log('Database connected and models synchronized.');
     app.listen(PORT, () => {

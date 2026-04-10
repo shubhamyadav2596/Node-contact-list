@@ -65,27 +65,41 @@ Server is running on http://localhost:3000
 
 ### 1. Upload Contacts via Excel
 (i) URL: /api/contacts/upload
+
 (ii) Method: POST
+
 (iii) Content-Type: multipart/form-data
 (iv) Body: Form-data with a key named file (Type: File) and an .xlsx file as the value.
+
 (v) Excel Format Rules: The first row must contain exact headers: Name, Email, and Phone.
+
 (vi) Success Response: 201 Created
+
 
 ### 2. Get All Contacts (with Search & Pagination)
 (i) URL: /api/contacts
+
 (ii) Method: GET
+
 (iii) Query Parameters (Optional):
+
  - page: Page number (default: 1)
  - limit: Items per page (default: 10)
  - search: Global search string for name, email, or phone.
+
 (iv) Example: /api/contacts?page=1&limit=5&search=Rahul
+
 (v) Success Response: 200 OK (Returns total items, pages, and an array of contact data).
 
 ### 3. Update a Contact
 (i) URL: /api/contacts/:id
+
 (ii)Method: PUT
+
 (iii)Content-Type: application/json
+
 (iv) Body:
+
 ```JSON
 {
   "name": "Updated Name",
@@ -97,8 +111,11 @@ Server is running on http://localhost:3000
 
 ### 4. Delete a Contact
 (i) URL: /api/contacts/:id
+
 (ii) Method: DELETE
+
 (iii)Success Response: 200 OK
+
 
 
 ## 🧪 Testing the File Upload without Postman

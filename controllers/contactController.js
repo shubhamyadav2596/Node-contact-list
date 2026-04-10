@@ -14,7 +14,6 @@ exports.uploadContacts = async (req, res) => {
     const sheetName = workbook.SheetNames[0];
     const sheetData = xlsx.utils.sheet_to_json(workbook.Sheets[sheetName]);
 
-    // Error Fix: Sirf wahi rows process karo jisme Name, Email aur Phone teeno hain (Empty rows ko ignore karega)
     const validRows = sheetData.filter(row => row.Name && row.Email && row.Phone);
 
     if (validRows.length === 0) {
@@ -38,7 +37,7 @@ exports.uploadContacts = async (req, res) => {
 
     res.status(201).json({ message: 'Contacts uploaded and synced successfully.' });
   } catch (error) {
-    console.error('Upload Error:', error); // Console mein real error dekhne ke liye
+    console.error('Upload Error:', error); // find error details in console
     res.status(500).json({ error: 'Error processing the file', details: error.message });
   }
 };
